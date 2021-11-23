@@ -1,0 +1,20 @@
+<div class="d-flex container justify-content-center ">
+    <a class="mx-2" style="cursor: pointer;"
+    (click)="getAllArticles()">All</a>
+     <a class="mx-2" style="cursor: pointer;"
+        *ngFor="let year of years" (click)="filterByYear(year)">{{year}}</a></div>
+<div class="container d-flex flex-wrap">
+    <mat-card class="example-card child" *ngFor="let article of articlesChunk">
+        <mat-card-title-group>
+            <mat-card-title>{{article.title}}</mat-card-title>
+            <mat-card-subtitle>{{article.date}}</mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-actions>
+            <button [routerLink]="['','article',article.title.toLowerCase()]" mat-button>Go to Article</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+
+<mat-paginator [length]="articles.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChanged($event)"></mat-paginator>

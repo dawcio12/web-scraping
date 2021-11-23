@@ -1,0 +1,9 @@
+.child{
+    flex: 1 0 19%;
+    margin: 5px;
+
+}
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+  }
