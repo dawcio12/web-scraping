@@ -21,8 +21,6 @@ export class ArticleListComponent implements OnInit {
   ngOnInit(): void {
     this.getAllArticles();
     this.articleService.getYeas().subscribe(data => {
-
-
       this.years = data.years;
 
     })
@@ -39,16 +37,15 @@ export class ArticleListComponent implements OnInit {
   }
   filterByYear(year: string) {
     this.articleService.getArticleFromYear(year).subscribe(data => {
-
-
       this.articlesChunk = data.articleFromYear.slice(0, this.pageSize);
       this.articles = data.articleFromYear;
-
     })
   }
   getAllArticles() {
     this.articleService.getAllArticles().subscribe(data => {
-      this.articles = data.articles.sort();
+      this.articles = data.articles.sort((a:any,b:any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      console.log(this.articles);
+      
       this.articlesChunk = data.articles.slice(0, this.pageSize);
     })
   }

@@ -14,6 +14,7 @@ axios.get('https://wordpress.com/blog/2021/').then((response) => {
     const $ = cheerio.load(html);
     $('ul.year-nav li', html).each(function () {
         const year = $("a", this).text()
+
         axios.get(`https://wordpress.com/blog/${year}/`).then((response) => {
             const html = response.data 
             const $ = cheerio.load(html);
@@ -27,6 +28,8 @@ axios.get('https://wordpress.com/blog/2021/').then((response) => {
         })
         years.push(year)
     })
+
+    
 
 })
 
@@ -42,14 +45,11 @@ api.get('/articles/:year', async (req, res) => {
 
 api.get('/allArticles', (req, res) => {
     const length = articles.length
-
     res.json({ articles, length })
 })
 
 api.get('/article/:title', (req, res) => {
     const art = articles.filter(p => p.title.toLowerCase().includes(decodeURI(req.params.title)))[0]
-    console.log(req.params.title);
-    console.log(art);
     let post = {}
     axios.get(art.href).then((response) => {
         const html = response.data
