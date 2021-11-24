@@ -1,19 +1,17 @@
-# web-scraping project 
-Aplikacja skladajaca sie z API napisanego w Javascript z uzyciem takich bibliotek jak:  
--axios  
--cheerio  
--express  
--cors  
+An application consisting of an API written in Javascript using libraries such as:
+-axios
+-cheerio
+-express
+-cors
 
+Endpoints available
+The API downloads articles from the wordpress blog then makes them available through endpoints:
+- '/ articles /: year' returns an article list for a specific year
+- '/ allArticles' returns a list of all articles
+- '/ article /: title' returns a single article with the title '
 
-# Dostepne endpointy
-API sciaga artykuly z blogu wordpress nastepnie udostepnia je przez endpointy:  
--'/articles/:year' zwraca liste artykulow z konkretnego roku  
--'/allArticles' zwraca liste wszystkich artykulow   
--'/article/:title' zwraca pojedynczy artykul o tytule ''  
+The articles are downloaded during the server startup because it was supposed to be only a demonstration
 
-Artykuly pobierane sa podczas staru serwera poniewaz mialo to miec charakter pokazowy
-
-# Frontend 
-Frontend zostal napisany w Angular v12 z uzyciem Materials Design oraz Bootstrap  
-Aplikacja posiada paginacje ktora pomaga w przegladaniu artukulow. Zostal do tego wykorzystany komponent z Material Design (mat-paginator). Artykuly wyswietlane sa w postaci kart z uzyciem komponentu (mat-card).
+Frontend
+The frontend was written in Angular v12 using Materials Design and Bootstrap
+The application has pagination that helps in viewing articles. A component from Material Design (mat-paginator) was used for this. The articles are displayed in the form of cards with the use of the (mat-card) component.
