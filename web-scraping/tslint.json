@@ -1,0 +1,10 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "no-console": [
+      true,
+      "log",    // no console.log allowed
+      "warn"    // no console.warn allowed
+    ]
+  }
+}
